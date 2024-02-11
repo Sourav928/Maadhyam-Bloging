@@ -10,7 +10,11 @@ dotenv.config();
 
 const app = express();
 
-app.use(cors());
+const corsOption = {
+  origin: "https://maadhyam-bloging.onrender.com",
+};
+
+app.use(cors(corsOption));
 app.use(express.json({ extended: true }));
 app.use(express.urlencoded({ extended: true }));
 app.use("/", Router);
