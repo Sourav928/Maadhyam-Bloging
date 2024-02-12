@@ -2,7 +2,7 @@ import multer from "multer";
 import { GridFsStorage } from "multer-gridfs-storage";
 import mongoose from "mongoose";
 
-const conn = mongoose.createConnection(mongo_uri, {
+const conn = mongoose.createConnection(process.env.MONGO_URL, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
