@@ -1,9 +1,14 @@
 import multer from "multer";
 import { GridFsStorage } from "multer-gridfs-storage";
 
+const conn = mongoose.createConnection(mongo_uri, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
+
 const storage = new GridFsStorage({
   url: process.env.MONGO_URL,
-  options: { useNewUrlParser: true, useUnifiedTopology: true },
+  db: conn,
   file: (request, file) => {
     const match = ["image/png", "image/jpg"];
 
